@@ -515,6 +515,9 @@ class Stomp {
      * @throws StompException
      */
     protected function _writeFrame( StompFrame $stompFrame ) {
+
+        error_reporting(E_ALL ^ E_NOTICE);
+
         if ( !is_resource( $this->_socket ) ) {
             require_once 'Stomp/Exception.php';
             throw new StompException( 'Socket connection hasn\'t been established' );
